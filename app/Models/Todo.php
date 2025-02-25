@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
     protected $fillable = [
-        'title',
-        'complete',
+        'task',
+        'is_completed'
     ];
 }

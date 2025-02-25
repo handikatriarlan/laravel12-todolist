@@ -43,8 +43,11 @@ export interface Todo {
     id: number;
     task: string;
     is_completed: boolean;
+    created_at?: string;
+    updated_at?: string;
 }
 
-export interface Props {
-    todos: Todo[];
+export interface BreadcrumbItem {
+    title: string;
+    href: string;
 }

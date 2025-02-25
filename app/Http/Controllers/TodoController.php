@@ -3,47 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Inertia\Response;
+use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
-    public function index(): Response
+    public function index()
     {
-        $todos = Todo::latest()->get();
-
         return Inertia::render('ToDo', [
-            'todos' => $todos,
+            'todos' => Todo::latest()->get(),
         ]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'task' => 'required|string|max:255',
         ]);
 
-        Todo::create([
-            'task' => $request->task,
-        ]);
+        Todo::create($validated);
 
-        return redirect()->route('to-do');
+        return back();
     }
 
-    public function update(Todo $todo)
+    public function update(Request $request, Todo $todo)
     {
-        $todo->update([
-            'is_completed' => !$todo->is_completed,
+        $validated = $request->validate([
+            'is_completed' => 'required|boolean',
         ]);
 
-        return redirect()->route('to-do');
+        $todo->update($validated);
+
+        return back();
     }
 
     public function destroy(Todo $todo)
     {
         $todo->delete();
-
-        return redirect()->route('to-do');
+        return back();
     }
 }
