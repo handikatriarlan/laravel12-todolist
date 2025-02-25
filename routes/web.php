@@ -9,9 +9,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    // Route::get('dashboard', function () {
-    //     return Inertia::render('dashboard');
-    // })->name('dashboard');
+    Route::get('dashboard', function () {
+        return Inertia::render('dashboard');
+    })->name('dashboard');
 
     Route::get('to-do', [TodoController::class, 'index'])->name('to-do');
     Route::post('to-do', [TodoController::class, 'store'])->name('to-do.store');
