@@ -183,7 +183,7 @@ export default function ToDo() {
                                         <label
                                             htmlFor={`todo-${todo.id}`}
                                             className={cn(
-                                                'mb-1 cursor-pointer text-lg transition-all duration-200',
+                                                'mb-1 cursor-pointer text-base transition-all duration-200',
                                                 todo.is_completed === true && 'text-muted-foreground line-through',
                                             )}
                                         >
