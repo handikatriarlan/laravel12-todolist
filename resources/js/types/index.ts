@@ -38,3 +38,13 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Todo {
+    id: number;
+    task: string;
+    is_completed: boolean;
+}
+
+export interface Props {
+    todos: Todo[];
+}
