@@ -55,7 +55,7 @@ export default function ToDo() {
             {
                 preserveScroll: true,
                 onSuccess: () => {
-                    toast.info(`To-do "${todo.task}" ${newStatus ? 'completed' : 'uncompleted'}.`);
+                    toast.info(`To-do "${todo.task}" ${newStatus ? 'completed' : 'incomplete'}.`);
                 },
                 onError: (errors) => {
                     console.error('Error updating task:', errors);
@@ -126,7 +126,7 @@ export default function ToDo() {
                             <PlaceholderPattern className="stroke-muted-foreground/20 dark:stroke-muted/20 size-full" />
                         </div>
                         <CardHeader>
-                            <CardTitle>Uncompleted</CardTitle>
+                            <CardTitle>Incomplete</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <span className="text-4xl font-bold">{incompleteTasks}</span>
