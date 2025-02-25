@@ -90,8 +90,8 @@ export default function ToDo() {
         });
     };
 
-    const completedTasks = todos.filter((t) => t.is_completed === true).length;
-    const incompleteTasks = todos.length - completedTasks;
+    const completedTasks = todos.filter((t) => !!t.is_completed).length;
+    const incompleteTasks = todos.filter((t) => !t.is_completed).length;
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
