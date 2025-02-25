@@ -12,7 +12,6 @@ import { cn } from '@/lib/utils';
 import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import { BookOpen, Folder, Menu, Search, ListTodo } from 'lucide-react';
-import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 
 const mainNavItems: NavItem[] = [
@@ -100,7 +99,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                     </div>
 
                     <Link href="/to-do" prefetch className="flex items-center space-x-2">
-                        <AppLogo />
+                        <AppLogoIcon className="h-6 w-6 fill-current text-black dark:text-white" />
                     </Link>
 
                     {/* Desktop Navigation */}
